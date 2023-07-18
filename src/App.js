@@ -46,7 +46,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("https://ecommercebackend-y38s.onrender.com/api/v1/stripeapikey");
+    const { data } = await axios.get("/api/v1/stripeapikey");
     setStripeApiKey(data.stripeApiKey);
     console.log(data.stripeApiKey);
   }
@@ -62,7 +62,7 @@ function App() {
 
         {stripeApiKey && (
           <Elements stripe={loadStripe(stripeApiKey)}>
-            <ProtectedRoute exact path="/process/payment" component={Payment} />
+            <ProtectedRoute exact path="https://ecommercebackend-y38s.onrender.com/process/payment" component={Payment} />
           </Elements>
         )}
         <Switch>
@@ -107,11 +107,11 @@ function App() {
           <ProtectedRoute isAdmin={true} exact path="/admin/user/:id" component={UpdateUser} />
           <ProtectedRoute isAdmin={true} exact path="/admin/reviews" component={ProductReviews} />
           
-          {/* <Route
+          <Route
           component={
             window.location.pathname === "/process/payment" ? null : NotFound
           }
-        /> */}
+        />
 
         </Switch>
         <Footer />
