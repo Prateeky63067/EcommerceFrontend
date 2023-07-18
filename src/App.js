@@ -109,11 +109,11 @@ function App() {
           <ProtectedRoute isAdmin={true} exact path="/admin/user/:id" component={UpdateUser} />
           <ProtectedRoute isAdmin={true} exact path="/admin/reviews" component={ProductReviews} />
           
-          <Route
+          {/* <Route
           component={
             window.location.pathname === "/process/payment" ? null : NotFound
           }
-        />
+        /> */}
 
         </Switch>
         <Footer />
