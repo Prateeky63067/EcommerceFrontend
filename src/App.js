@@ -47,10 +47,14 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
-
-    setStripeApiKey(data.stripeApiKey);
-    console.log(stripeApiKey);
+    try {
+      const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
+      setStripeApiKey(data.stripeApiKey);
+    } catch (error) {
+      console.log(error)
+    }
+   
+   
   }
   useEffect(() => {
     store.dispatch(loadUser());
