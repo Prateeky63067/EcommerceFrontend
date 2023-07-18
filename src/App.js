@@ -47,10 +47,11 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
    function getStripeApiKey() {
-    // const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
-
-    setStripeApiKey("pk_test_51NTP1FSDsVZPKzmOcOSiWeikixKfqBHLrTVpne9Y0K1wwNtjuGr2We7W2cnnvJCZwoZGbST3pW9yPpml2XCWmqYc00D7BlyJrz");
-    // console.log(stripeApiKey);
+    async function getStripeApiKey() {
+      const { data } = await axios.get("/api/v1/stripeapikey");
+      setStripeApiKey(data.stripeApiKey);
+      console.log(data);
+    }
   }
   useEffect(() => {
     store.dispatch(loadUser());
