@@ -44,7 +44,7 @@ import NotFound from "./component/layout/Not Found/NotFound.js";
 import {BackendServer} from "./index"
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  // const [stripeApiKey, setStripeApiKey] = useState("");
+  const [stripeApiKey, setStripeApiKey] = useState("");
 
   //  function getStripeApiKey() {
   //   async function getStripeApiKey() {
@@ -55,6 +55,7 @@ function App() {
   // }
   useEffect(() => {
     store.dispatch(loadUser());
+    setStripeApiKey("pk_test_51NTP1FSDsVZPKzmOcOSiWeikixKfqBHLrTVpne9Y0K1wwNtjuGr2We7W2cnnvJCZwoZGbST3pW9yPpml2XCWmqYc00D7BlyJrz");
     // getStripeApiKey();
   }, []);
   return (
@@ -63,11 +64,11 @@ function App() {
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
 
-        {/* {stripeApiKey && (
+        {stripeApiKey && (
           <Elements stripe={loadStripe(stripeApiKey)}>
             <ProtectedRoute exact path="/process/payment" component={Payment} />
           </Elements>
-        )} */}
+        )}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/product/:id" component={ProductDetails} />
