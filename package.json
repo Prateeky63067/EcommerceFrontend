@@ -67,6 +67,6 @@
     "@iconify/icons-bx": "^1.2.6",
     "@iconify/icons-bxs": "^1.2.6",
     "@iconify/react": "^4.1.1"
-  },
-  "proxy": "https://ecommercebackend-y38s.onrender.com"
+  }
+ 
 }
