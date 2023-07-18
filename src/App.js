@@ -44,18 +44,18 @@ import NotFound from "./component/layout/Not Found/NotFound.js";
 import {BackendServer} from "./index"
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const [stripeApiKey, setStripeApiKey] = useState("");
+  // const [stripeApiKey, setStripeApiKey] = useState("");
 
-   function getStripeApiKey() {
-    async function getStripeApiKey() {
-      const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
-      setStripeApiKey(data.stripeApiKey);
-      console.log(data);
-    }
-  }
+  //  function getStripeApiKey() {
+  //   async function getStripeApiKey() {
+  //     const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
+  //     setStripeApiKey(data.stripeApiKey);
+  //     console.log(data);
+  //   }
+  // }
   useEffect(() => {
     store.dispatch(loadUser());
-    getStripeApiKey();
+    // getStripeApiKey();
   }, []);
   return (
     <>
@@ -63,11 +63,11 @@ function App() {
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
 
-        {stripeApiKey && (
+        {/* {stripeApiKey && (
           <Elements stripe={loadStripe(stripeApiKey)}>
             <ProtectedRoute exact path="/process/payment" component={Payment} />
           </Elements>
-        )}
+        )} */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/product/:id" component={ProductDetails} />
