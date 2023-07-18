@@ -4,10 +4,10 @@ import {
     SAVE_SHIPPING_INFO,
   } from "../constants/cartConstants";
   import axios from "axios";
-  
+  import {BackendServer} from "../index"
   // Add to Cart
   export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/v1/products/${id}`);
+    const { data } = await axios.get(`${BackendServer}/api/v1/products/${id}`);
    console.log(data);
     dispatch({
       type: ADD_TO_CART,
