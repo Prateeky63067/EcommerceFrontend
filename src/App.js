@@ -44,8 +44,8 @@ import NotFound from "./component/layout/Not Found/NotFound.js";
 import {BackendServer} from "./index"
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const [stripeApiKey, setStripeApiKey] = useState("");
-
+  // const [stripeApiKey, setStripeApiKey] = useState("");
+  const stripeApiKey="pk_test_51NTP1FSDsVZPKzmOcOSiWeikixKfqBHLrTVpne9Y0K1wwNtjuGr2We7W2cnnvJCZwoZGbST3pW9yPpml2XCWmqYc00D7BlyJrz"
   //  function getStripeApiKey() {
   //   async function getStripeApiKey() {
   //     const { data } = await axios.get(`${BackendServer}/api/v1/stripeapikey`);
@@ -55,7 +55,7 @@ function App() {
   // }
   useEffect(() => {
     store.dispatch(loadUser());
-    setStripeApiKey("pk_test_51NTP1FSDsVZPKzmOcOSiWeikixKfqBHLrTVpne9Y0K1wwNtjuGr2We7W2cnnvJCZwoZGbST3pW9yPpml2XCWmqYc00D7BlyJrz");
+    // setStripeApiKey("pk_test_51NTP1FSDsVZPKzmOcOSiWeikixKfqBHLrTVpne9Y0K1wwNtjuGr2We7W2cnnvJCZwoZGbST3pW9yPpml2XCWmqYc00D7BlyJrz");
     // getStripeApiKey();
   }, []);
   return (
